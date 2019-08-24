@@ -1,0 +1,15 @@
+<!doctype html>
+<title>{% block title %}{% endblock %} - Flaskr</title>
+<link rel="stylesheet" href="{{url_for('static', filename='style.css') }}">
+<nav>
+  <h1>Flaskr</h1>
+  <ul>
+    {% if g.user %}
+        <li><span>{{ g.user['username'] }}</span>
+        <li><span><a href="{{ url_for('auth.logout') }}">Log out</a>
+    {% else %}
+        <li><span><a href="{{ url_for('auth.register') }}">Register</a>
+        <li><span><a href="{{ url_for('auth.login') }}">Login</a>
+    {% endif %}
+  </ul>
+
